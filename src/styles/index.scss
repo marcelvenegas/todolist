@@ -1,5 +1,5 @@
 @import "~bootstrap/scss/bootstrap.scss";
-input{
+.placeholder{
     width: 50%;
     height:40px;
     padding: 15px;
@@ -11,7 +11,7 @@ input{
     border-bottom-right-radius: 10px;
     border-bottom-left-radius: 10px;
     }
-input placeholder {
+.inputplaceholder {
   width: 100%;
   height: 50px;
   float: left;
@@ -28,10 +28,10 @@ input placeholder {
   -webkit-appearance: none;
   -moz-appearance: none;
 }
-button{
+.button{
   background-color: #4CAF50;
   border: none;
-  color: white;
+  color: blue;
   padding: 15px 32px;
   text-align: center;
   text-decoration: none;
@@ -39,4 +39,13 @@ button{
   font-size: 16px;
   margin: 4px 2px;
   cursor: pointer;
+}
+.separated{
+    display:flex;
+    justify-content: space-between;
+    border: 1px black solid;
+    padding: 10px;
+}
+.separated > span{
+    cursor: pointer;
 }

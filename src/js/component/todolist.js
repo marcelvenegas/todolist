@@ -1,22 +1,26 @@
 import React from "react";
+import { Lista } from "./Lista.js";
 
 //Rendering an Array
 export class Todolist extends React.Component {
 	constructor() {
 		super();
 		this.state = {
-			todos: ["HELLO"]
+			todos: ["Hola", "otra Hola", "heyyy"]
 		};
 	}
+	deleteElement = chair => {
+		let temp = this.state.todos;
+		temp.splice(chair, 1);
+		this.setState({ todos: temp });
+	};
 	render() {
-		let myList = ["First", "Second", "Third", "Fourth", "Animal", 43];
-		console.log(myList);
-
 		return (
 			<div className="text-center mt-5">
 				<h1>To Do List</h1>
 				<input
 					type="text"
+					className="placeholder"
 					value={this.state.anInput}
 					onChange={this.updateState}
 					placeholder="Enter activity here"
@@ -28,8 +32,14 @@ export class Todolist extends React.Component {
 					Enter Activity
 				</button>
 				<ul>
-					{myList.map((tea, parrot) => {
-						return <li key={parrot}>{tea}</li>;
+					{this.state.todos.map((elem, ind) => {
+						return (
+							<Lista
+								key={ind}
+								text={elem}
+								action={() => this.deleteElement(ind)}
+							/>
+						);
 					})}
 				</ul>
 			</div>
