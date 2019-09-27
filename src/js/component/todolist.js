@@ -6,15 +6,26 @@ export class Todolist extends React.Component {
 	constructor() {
 		super();
 		this.state = {
+			anInput: "",
 			todos: ["Hola", "otra Hola", "heyyy"]
 		};
+		this.updateState = this.updateState.bind(this);
 	}
+	updateState(e) {
+		this.setState({ anInput: e.target.value });
+	}
+
 	deleteElement = chair => {
 		let temp = this.state.todos;
 		temp.splice(chair, 1);
 		this.setState({ todos: temp });
 	};
+
 	render() {
+		let aList = this.state.todos.map((todo, index) => {
+			return <Todolist key={index} name={todo} />;
+		});
+
 		return (
 			<div className="text-center mt-5">
 				<h1>To Do List</h1>
